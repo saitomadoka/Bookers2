@@ -1,24 +1,25 @@
 <!-- app/views/homes/top.html.erb -->
-<div class="text-center mt-5 px-4">
-  <h1 class="display-4 fw-bold">
-    welcome to <i class="fas fa-book"></i> <strong>Bookers</strong> !!
-  </h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>
+        welcome to <i class="fa-solid fa-book"></i> <strong>Bookers</strong> !!
+      </h1>
 
-  <p class="mt-4 fs-5">
-    In <i class="fas fa-book"></i><strong>Bookers</strong>,
-  </p>
+      <p>
+        In <i class="fa-solid fa-book"></i><strong>Bookers</strong>,
+      </p>
 
-  <p class="fs-5">
-    you can share and exchange your opinions, impressions, and emotions
-  </p>
+      <p>
+        you can share and exchange your opinions, impressions, and emotions
+      </p>
 
-  <p class="fs-5 mb-4">
-    about various books!
-  </p>
-
+      <p>
+        about various books!
+      </p>
 
   <div class="d-flex flex-column align-items-center gap-3 mt-4" style="max-width: 300px; margin: 0 auto;">
-    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-lg text-white fw-bold w-100" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg fw-bold w-100" %>
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-lg text-white w-100" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg w-100" %>
   </div>
 </div>
