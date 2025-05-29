@@ -1,35 +1,6 @@
 <div class="row">
-  <!-- 左：ユーザー情報 + 投稿フォーム -->
-  <div class="col-md-3">
-    <h3>User info</h3>
-    <% if @user.profile_image.attached? %>
-      <%= image_tag @user.profile_image.variant(resize: "100x100") %>
-    <% else %>
-      <%= image_tag 'no_image.jpg', width: 100 %>
-    <% end %>
-    <table class="table">
-      <tr><th>name</th><td><%= @user.name %></td></tr>
-      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
-    </table>
-
-    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block edit_user_#{@user.id}" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
-
-    <h4>New Book</h4>
-    <%= form_with model: @book, local: true do |f| %>
-      <div class="mb-2">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="mb-2">
-        <%= f.label :body, "Opinion" %>
-        <%= f.text_area :body, class: "form-control" %>
-      </div>
-      <%= f.submit "Create Book", class: "btn btn-primary w-100" %>
-    <% end %>
-  </div>
-
+  <%= render 'users/user', user: @user %>
+  
   <!-- 右：ユーザー一覧（テーブル形式） -->
   <div class="col-md-9">
     <h3>Users</h3>

@@ -1,0 +1,21 @@
+<h2>User info</h2>
+
+<%= form_with model: @user do |f| %>
+  <div class="mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :profile_image, "Image" %><br>
+    <%= f.file_field :profile_image %>
+  </div>
+
+
+  <div class="mb-3">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, rows: 3, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Update User", class: "btn btn-secondary" %>
+<% end %>

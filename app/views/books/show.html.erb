@@ -30,32 +30,48 @@
     <% end %>
   </div>
 
-  <!-- 右：ユーザー一覧（テーブル形式） -->
+  <!-- 右：本の詳細 -->
   <div class="col-md-9">
-    <h3>Users</h3>
+    <h1>Book detail</h1>
+    <hr>
+
     <table class="table">
       <thead>
         <tr>
-          <th>image</th>
-          <th>name</th>
-          <th></th> <!-- Showボタン用 -->
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td>
-              <% if user.profile_image.attached? %>
-                <%= image_tag user.profile_image.variant(resize: "80x80"), class: "rounded" %>
-              <% else %>
-                <%= image_tag 'no_image.jpg', width: 80, height: 80, class: "rounded" %>
-              <% end %>
-            </td>
-            <td><%= user.name %></td>
-            <td><%= link_to 'Show', user_path(user) %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <!-- 投稿者画像 + 名前 -->
+          <td>
+            <% if @book.user.profile_image.attached? %>
+              <%= image_tag @book.user.profile_image.variant(resize: "80x80"), class: "mb-2 d-block" %>
+            <% else %>
+              <%= image_tag "no_image.jpg", width: 80, class: "mb-2 d-block" %>
+            <% end %>
+            <%= link_to @book.user.name, user_path(@book.user) %>
+          </td>
+
+          <!-- 本のタイトル -->
+          <td><%= @book.title %></td>
+
+          <!-- 本の本文 -->
+          <td><%= @book.body %></td>
+
+          <!-- 編集・削除ボタン（ログインユーザーが投稿主のみ） -->
+          <td>
+            <% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@book), class: "btn btn-sm btn-success me-2" %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+            <% end %>
+          </td>
+
+        </tr>
       </tbody>
     </table>
   </div>
-</div> 
+</div>
