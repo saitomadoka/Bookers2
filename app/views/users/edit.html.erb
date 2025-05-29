@@ -1,21 +1,18 @@
 <h2>User info</h2>
 
 <%= form_with model: @user do |f| %>
-  <div class="mb-3">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+
+
+  <div class="user-name">Name</div>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <div class="user-edit-image">Image</div>
+  <%= f.file_field :profile_image, class: "form-control" %>
+
+  <div class="form-body">Introduction</div>
+  <%= f.text_area :introduction, class: "form-control", rows: 3 %>
+
+  <div class="upload mt-3">
+    <%= f.submit "Update User", class: "btn btn-primary" %>
   </div>
-
-  <div class="mb-3">
-    <%= f.label :profile_image, "Image" %><br>
-    <%= f.file_field :profile_image %>
-  </div>
-
-
-  <div class="mb-3">
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction, rows: 3, class: "form-control" %>
-  </div>
-
-  <%= f.submit "Update User", class: "btn btn-secondary" %>
 <% end %>

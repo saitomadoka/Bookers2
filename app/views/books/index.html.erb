@@ -23,8 +23,8 @@
         <%= f.text_field :title, class: "form-control" %>
       </div>
       <div class="mb-2">
-        <%= f.label :body, "Opinion" %>
-        <%= f.text_area :body, class: "form-control" %>
+        <%= f.label :opinion, "Opinion" %>
+        <%= f.text_area :opinion, class: "form-control" %>
       </div>
       <%= f.submit "Create Book", class: "btn btn-primary w-100" %>
     <% end %>
@@ -52,7 +52,7 @@
             <% end %>
           </td>
           <td><%= link_to book.title, book_path(book) %></td>
-          <td><%= truncate(book.body, length: 50) %></td>
+          <td><%= truncate(book.opinion, length: 50) %></td>
           
         </tr>
       <% end %>
